@@ -52,15 +52,24 @@ There are two csv files given
 
 ### Model Performances:
 1. **ARIMA (AutoRegressive Integrated Moving Average)**
+
 `model = SARIMAX(train, order=(4,1,3))`
   * **RMSE**: 682.68
   * **MAPE**: 0.0897
 
 2. **SARIMA (Seasonal ARIMA)**
+
 `model = SARIMAX(train, order=(0,1,0), seasonal_order=(3,0,1,7)`
   * **MAPE**: Approx. 0.06
 
 3. **SARIMAX (SARIMA with eXogenous variables)**
-  `model = SARIMAX(train, order=(4,1,3), seasonal_order=(3,0,2,7), exog=exog_df.loc[train.index])`
+
+`model = SARIMAX(train, order=(4,1,3), seasonal_order=(3,0,2,7), exog=exog_df.loc[train.index])`
   * **RMSE**: 304.71
   * **MAPE**: 0.0456
+
+4. **Facebook Prophet**
+
+`model = Prophet()`
+  * **RMSE** : 544.49
+  * **MAPE**: 0.0672 
